@@ -27,7 +27,7 @@
             </ul>
         </div>
     
-        <img  class="ic_full" id="screenChange" onclick="toggle(this);" src="assets/img/ic_full.svg" style="width: 30px; ">
+        <a href="#"> <img  class="ic_full" id="screenChange" onclick="toggle(this);" src="assets/img/ic_full.svg" style="width: 30px; ">
     
         <!-- content tracking -->
         <div id="cy"></div>
@@ -114,7 +114,7 @@
 <script>
 
 cy.userZoomingEnabled( false ); //disable zoom
-    cy.on('tap', 'id', function(){
+    cy.on('tap', 'node', function(){
         try { 
 
             var node =   this.data('id');
