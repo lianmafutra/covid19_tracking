@@ -42,6 +42,7 @@ var cy = cytoscape({
         'background-color': '#93CDDD',
       })
 
+      //status pasien 
       .selector('#positif, .positif')
       .css({
        'background-color':'#FF0000'
@@ -86,7 +87,7 @@ var cy = cytoscape({
         //group 4
         { data: { id: 'group4',name:'Group Bandara' } },
         { data: { id: '11',name:'pasien 11',parent: 'group4'} },
-        { data: { id: '12',name:'pasien 12',parent: 'group4'},classes:'positif' },
+        { data: { id: '12',name:'pasien 12',parent: 'group4'}, classes:'positif' },
 
         //group 5
         { data: { id: 'group5',name:'Group Band' } },
