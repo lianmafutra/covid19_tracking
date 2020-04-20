@@ -22,7 +22,7 @@
         <div id="box-desc">
             <ul style="list-style-type:none;  padding: 0;">
                 <li><a><span class="dot" style="background:red"></span>Pasien Positif</a></li>
-                <li><a><span class="dot" style="background:#93CDDD"></span>Pasien sembuh</a></li>
+                <li><a><span class="dot" style="background:#93CDDD"></span>Pasien biaso be dicurigai</a></li>
                 <li><a><span class="dot" style="background:green"></span>Pasien Negatif</a></li>
             </ul>
         </div>
@@ -128,8 +128,7 @@ cy.userZoomingEnabled( false ); //disable zoom
                 
                 //tutup modal
                 span.onclick = function() {
-                modal.style.display = "none";
-            
+                    modal.style.display = "none";
                 }
 
                 //close klik outside
@@ -146,10 +145,6 @@ cy.userZoomingEnabled( false ); //disable zoom
             else{
 
             }
-          
-        
-         
-
         } catch(e){ // fall back on url change
             window.location.href = this.data('href');
         }
