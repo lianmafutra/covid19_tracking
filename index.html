@@ -114,30 +114,41 @@
 <script>
 
 cy.userZoomingEnabled( false ); //disable zoom
-    cy.on('tap', 'node', function(){
+    cy.on('tap', 'id', function(){
         try { 
-        
-            // Get detail modal
-            let modal = document.getElementById("modalDetailPasien");
-            let span = document.getElementsByClassName("close")[0];
-            modal.style.display = "block";
-            
-            //tutup modal
-            span.onclick = function() {
-            modal.style.display = "none";
-            cy.reset(this);
-            }
 
-            //close klik outside
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
+            var node =   this.data('id');
+            var n = node.includes("group");
+        
+            if(n==false){
+                // Get detail modal
+                let modal = document.getElementById("modalDetailPasien");
+                let span = document.getElementsByClassName("close")[0];
+                modal.style.display = "block";
+                
+                //tutup modal
+                span.onclick = function() {
+                modal.style.display = "none";
+            
                 }
+
+                //close klik outside
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+                //set value ke modal
+                let myTable = document.getElementById('detail-pasien');
+                myTable.rows[0].cells[2].innerHTML = this.data('id');
+                myTable.rows[1].cells[2].innerHTML =  this.data('name');   
             }
-            //set value ke modal
-            let myTable = document.getElementById('detail-pasien');
-            myTable.rows[0].cells[2].innerHTML = this.data('id');
-            myTable.rows[1].cells[2].innerHTML =  this.data('name');   
+            else{
+
+            }
+          
+        
+         
 
         } catch(e){ // fall back on url change
             window.location.href = this.data('href');
