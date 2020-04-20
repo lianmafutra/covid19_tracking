@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="assets/css/style.css" rel="stylesheet" />
+<link href="assets/css/custom.css" rel="stylesheet" />
+<meta charset=utf-8 />
+
+<!-- base -->
+<script src="assets/js/cytoscape.min.js"></script>
+
+<!-- untuk Setting Layout Tree -->
+<script src="assets/js/dagre.min.js"></script>
+<script src="assets/js/cytoscape-dagre.js"></script> 
+
+
+</head>
+
+<body>
+    <h1>Cluster Perjalanan GOA Sulawesi</h1>
+
+    <div id="box-desc">
+        <ul style="list-style-type:none;  padding: 0;">
+            <li><a><span class="dot" style="background:red"></span>Pasien Positif</a></li>
+            <li><a><span class="dot" style="background:#93CDDD"></span>Pasien sembuh</a></li>
+            <li><a><span class="dot" style="background:green"></span>Pasien Negatif</a></li>
+        </ul>
+    </div>
+ 
+    <!-- content tracking -->
+    <div id="cy"></div>
+
+
+<!-- Modal Detail pasien-->
+<div id="modalDetailPasien" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Detail Pasien</h2>
+    </div>
+    <div class="modal-body">
+        <table id="detail-pasien">
+            <tr>
+                <td>Kode Pasien</td>
+                <td >:</td>
+                <td >Jackson</td>
+            </tr>
+            <tr>
+                <td>Nama Pasien</td>
+                <td >:</td>
+                <td >Jackson</td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td >:</td>
+                <td >Laki-laki</td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td >:</td>
+                <td >Jl. Jend.Basuki Rahmat no.1 Kotabaru, Jambi - Indonesia 36128</td>
+            </tr>
+            <tr>
+                <td>No. telp</td>
+                <td >:</td>
+                <td>0812686826</td>
+            </tr>
+            <tr>
+                <td>Keterangan</td>
+                <td >:</td>
+                <td>Tidak ada</td>
+            </tr>
+            <tr>
+                <td>Status pasien</td>
+                <td >:</td>
+                <td><a style="background-color: yellow; padding-left: 5px; padding-right: 5px; padding-bottom: 2px; border-radius: 25px;  border: 1px solid #73AD21;">PDP (Pasien Dalam Pengawasan)</a></td>
+            </tr>
+
+          </table>
+
+          <table id="tabel-tes">
+                <tr>
+                    <th>Jenis Tes</th>
+                    <th>Hasil</th>
+                </tr>
+                <tr>
+                    <td>Rapid 1</td>
+                    <td>Positif (+)</td>
+                </tr>
+                <tr>
+                    <td>Rapid 2</td>
+                    <td>Negatif (-)</td>
+                </tr>
+                <tr>
+                    <td>SWAB</td>
+                    <td>-</td>
+                </tr>
+          </table>
+    </div> 
+  
+  </div>
+
+</div>
+
+
+<!-- JS -->
+<script src="assets/js/code.js"></script>
+
+<!-- Modal detail pasien -->
+<script>
+
+cy.userZoomingEnabled( false ); //disable zoom
+    cy.on('tap', 'node', function(){
+        try { 
+        
+            // Get detail modal
+            let modal = document.getElementById("modalDetailPasien");
+            let span = document.getElementsByClassName("close")[0];
+            modal.style.display = "block";
+            
+            //tutup modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+
+            //close klik outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            //set value ke modal
+            let myTable = document.getElementById('detail-pasien');
+            myTable.rows[0].cells[2].innerHTML = this.data('id');
+            myTable.rows[1].cells[2].innerHTML =  this.data('name');   
+
+        } catch(e){ // fall back on url change
+            window.location.href = this.data('href');
+        }
+        });
+</script>
+
+
+
+</body>
+</html>
