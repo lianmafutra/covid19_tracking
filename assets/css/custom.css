@@ -53,6 +53,10 @@
     height: 20px;
 }
 
+.ic_min {
+    transform: rotate(180deg);
+
+ }
 
 
 
@@ -83,10 +87,11 @@
 
 /* Modal Content */
 .modal-content {
+   
     position: relative;
     background-color: #fefefe;
     margin: auto;
-    padding: 0;
+   
     border: 1px solid #888;
     width: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -95,6 +100,14 @@
     animation-name: animatetop;
     animation-duration: 0.4s
 }
+
+.modal-header {
+    padding: 20px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
 
 /*  Animation */
 @-webkit-keyframes animatetop {
@@ -122,13 +135,7 @@
     cursor: pointer;
 }
 
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
 
-.modal-body {padding: 2px 16px;}
 
 #tabel-tes {
     font-family: arial, sans-serif;

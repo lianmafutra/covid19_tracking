@@ -48,15 +48,15 @@
           <h2>Detail Pasien</h2>
         </div>
         <div class="modal-body">
-            <table id="detail-pasien">
+            <table id="detail-pasien" style="padding-top: 10px; border-spacing:0 15px;">
                 <tr>
                     <td>Kode Pasien</td>
                     <td >:</td>
                     <td >Jackson</td>
                 </tr>
                 <tr>
-                    <td>Nama Pasien</td>
-                    <td >:</td>
+                    <td style="padding-right: 10px;">Nama Pasien</td>
+                    <td style="padding-right: 10px">:</td>
                     <td >Jackson</td>
                 </tr>
                 <tr>
@@ -127,6 +127,7 @@ cy.viewport({
   zoom: 1,
   pan: { x: 20, y: 130 }
 });
+
 cy.nodes().ungrabify();
     cy.on('tap', 'node', function(){
         try { 
@@ -193,20 +194,20 @@ cy.nodes().ungrabify();
         }
     }
 
-        function toggle(status){
-            if(status.className!="ic_min")
-            {
-                document.getElementById("screenChange").src = "assets/img/ic_minimaze.svg";
-                status.className="ic_min";
-                openFullscreen();
-            }
-            else if(status.className=="ic_min")
-            {
-                document.getElementById("screenChange").src = "assets/img/ic_full.svg";
-                status.className="ic_full";
-                closeFullscreen();
+    function toggle(status){
+        if(status.className!="ic_min")
+        {
+           
+            status.className="ic_min";
+            openFullscreen();
+        }
+        else if(status.className=="ic_min")
+        {
+         
+            status.className="ic_full";
+            closeFullscreen();
               
-            }
+        }
 
         return false;
     }  
