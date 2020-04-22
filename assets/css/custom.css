@@ -47,25 +47,23 @@
  .ic_full, .ic_min{
     z-index: 5;
     position: fixed;
-    top: 0px;
+    top: 10px;
     padding: 10px;
     right: 0px;
-    color: white;
-    fill: currentColor;
+    height: 20px;
 }
 
-#Capa_1{
-    fill: white;
-    color: white;
-}
+
 
 
 .ic_reset{
     z-index: 5;
     position: fixed;
     top: 10px;
-    margin-right: 55px;
+    margin-right: 40px;
     right: 0px;
+    padding: 10px;
+    height: 20px;
 }
 
 
@@ -162,6 +160,13 @@
   
   
   }
+
+  .ic_reset:active {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    
+ }
 
   
   

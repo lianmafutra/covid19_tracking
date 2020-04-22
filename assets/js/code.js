@@ -55,7 +55,7 @@ var cy = cytoscape({
 
       .selector('#pengawasan, .pengawasan')
       .css({
-       'background-color':'#f9ca24'
+       'background-color':'#f0932b'
       }),
 
     
