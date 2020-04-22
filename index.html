@@ -28,6 +28,7 @@
         </div>
     
         <a href="javascript: void(0)"><img  class="ic_full" id="screenChange" onclick="toggle(this);" src="assets/img/ic_full.svg" style="width: 30px; "></a>
+        <a href="javascript: void(0)"><img  class="ic_reset" id="resetLayout" onclick="resetLayout();" src="assets/img/ic_reset.svg" style="width: 30px; "></a>
     
         <!-- content tracking -->
         <div id="cy"></div>
@@ -115,8 +116,11 @@
 
 // Setting panel tracking
 cy.userZoomingEnabled(true); //disable zoom
-cy.wheelSensitivity(1000);
-
+// cy.viewport({
+//   zoom: 1,
+//   pan: { x: 100, y: -400 }
+// });
+cy.nodes().ungrabify();
     cy.on('tap', 'node', function(){
         try { 
 
@@ -132,14 +136,13 @@ cy.wheelSensitivity(1000);
                 //tutup modal
                 span.onclick = function() {
                     modal.style.display = "none";
+                    
                 }
 
                 //close klik outside
                 window.onclick = function(event) {
                     if (event.target == modal) {
                         modal.style.display = "none";
-                        cy.reset();
-                   
                     }
                 }
                 //set value ke modal
@@ -201,6 +204,12 @@ cy.wheelSensitivity(1000);
 
         return false;
     }  
+
+    function resetLayout(){
+        cy.reset();
+        cy.layout();
+        cy.fit();
+    }
 </script>
 
 </body>

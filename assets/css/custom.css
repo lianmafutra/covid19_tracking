@@ -38,6 +38,15 @@ h1{
 }
 
 
+.ic_reset{
+    z-index: 5;
+    position: fixed;
+    top: 10px;
+    margin-right: 55px;
+    right: 0px;
+}
+
+
 .modal {
     display: none; 
     position: fixed; 

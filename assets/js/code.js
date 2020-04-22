@@ -1,8 +1,8 @@
 var cy = cytoscape({
   container: document.getElementById('cy'),
 
-  boxSelectionEnabled: false,
-  autounselectify: true,
+  // boxSelectionEnabled: false,
+  // autounselectify: true,
 
   style: cytoscape.stylesheet()
     .selector('node')
@@ -126,13 +126,16 @@ var cy = cytoscape({
         //multiple parent 
         { data: { source: '4', target: '10' } },
         { data: { source: '7', target: '10' } },
-  
        
     ]
   },
 
   layout: {
     //tipe layout menentukan posisi
-    name: 'dagre'
+    name: 'dagre',
+
+    // rankDir:'LR'
   }
+ 
+
 });
