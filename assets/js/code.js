@@ -41,16 +41,21 @@ var cy = cytoscape({
       .css({
         'background-color': '#93CDDD',
       })
-
+    
       //status pasien 
       .selector('#positif, .positif')
       .css({
-       'background-color':'#FF0000'
+       'background-color':'#eb4d4b'
       })
 
       .selector('#negatif, .negatif')
       .css({
-       'background-color':'#0b6623'
+       'background-color':'#6ab04c'
+      })
+
+      .selector('#pengawasan, .pengawasan')
+      .css({
+       'background-color':'#f9ca24'
       }),
 
     
@@ -91,12 +96,12 @@ var cy = cytoscape({
 
         //group 5
         { data: { id: 'group5',name:'Group Band' } },
-        { data: { id: '13',name:'pasien 13',parent: 'group5'} },
+        { data: { id: '13',name:'pasien 13',parent: 'group5'},classes:'pengawasan' },
         { data: { id: '14',name:'pasien 14',parent: 'group5'} },
 
         //group 6
         { data: { id: 'group6',name:'Group swalayan' } },
-        { data: { id: '17',name:'pasien 17',parent: 'group6'} },
+        { data: { id: '17',name:'pasien 17',parent: 'group6'} ,classes:'pengawasan'},
         { data: { id: '18',name:'pasien 18',parent: 'group6'} },
           
     ],
@@ -134,8 +139,9 @@ var cy = cytoscape({
     //tipe layout menentukan posisi
     name: 'dagre',
 
+
     // rankDir:'LR'
-  }
- 
+  },
+
 
 });

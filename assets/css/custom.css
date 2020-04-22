@@ -1,11 +1,26 @@
-h1{
-    text-align: center;
-    
+*, body{
+    margin:0;
+    padding: 0;
 }
+
+.top-bar{
+    position: fixed;
+    padding: 15px;
+    background-color: rgb(53, 186, 223);
+    z-index: 2;
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+
+
+
 #box-desc{
+    
     background-color:#F0F0F0;
     width: 190px;
-    height: 75px;
+    height: 70px;
+    padding-top: 10px;
     position: fixed;
     font-size: 14px;
     margin-left: 10px;
@@ -35,6 +50,13 @@ h1{
     top: 0px;
     padding: 10px;
     right: 0px;
+    color: white;
+    fill: currentColor;
+}
+
+#Capa_1{
+    fill: white;
+    color: white;
 }
 
 
@@ -130,3 +152,16 @@ h1{
     padding: 8px;
     background-color: #D8D8D8;
 }
+
+.title_cluster{
+ 
+    position: relative;
+    padding-left: 20px;
+    left: 0;
+    color: white;
+  
+  
+  }
+
+  
+  

@@ -15,23 +15,29 @@
 
 </head>
 
-<body>
-    <div id="main" style="background-color: white;">
-        <h1>Cluster Perjalanan GOA Sulawesi</h1>
+<body">
+    <div id="main"> 
+        <div class="top-bar">
+                <h1 class="title_cluster">Cluster Perjalanan GOA Sulawesi</h1>
+                <a href="javascript: void(0)"><img  class="ic_full" id="screenChange" onclick="toggle(this);" src="assets/img/ic_full.svg" style="width: 30px; "></a>
+                <a href="javascript: void(0)"><img  class="ic_reset" id="resetLayout" onclick="resetLayout();" src="assets/img/ic_reset.svg" style="width: 30px; "></a>
+            
+        </div>
 
         <div id="box-desc">
-            <ul style="list-style-type:none;  padding: 0;">
-                <li><a><span class="dot" style="background:red"></span>Pasien Positif</a></li>
-                <li><a><span class="dot" style="background:#93CDDD"></span>Pasien biaso be dicurigai</a></li>
-                <li><a><span class="dot" style="background:green"></span>Pasien Negatif</a></li>
-            </ul>
-        </div>
-    
-        <a href="javascript: void(0)"><img  class="ic_full" id="screenChange" onclick="toggle(this);" src="assets/img/ic_full.svg" style="width: 30px; "></a>
-        <a href="javascript: void(0)"><img  class="ic_reset" id="resetLayout" onclick="resetLayout();" src="assets/img/ic_reset.svg" style="width: 30px; "></a>
-    
+                <ul style="list-style-type:none;  padding: 0;">
+                    <li><a><span class="dot" style="background:red"></span>Pasien Positif</a></li>
+                    <li><a><span class="dot" style="background:#93CDDD"></span>Pasien biaso be dicurigai</a></li>
+                    <li><a><span class="dot" style="background:green"></span>Pasien Negatif</a></li>
+                    <li><a><span class="dot" style="background:#f9ca24"></span>Sedang diawasi</a></li>
+                </ul>
+            </div>
+      
         <!-- content tracking -->
-        <div id="cy"></div>
+        <div class="panel">
+                <div id="cy" style="background-color: white;"></div>
+        </div>
+      
     
     
     <!-- Modal Detail pasien-->
@@ -116,14 +122,14 @@
 
 // Setting panel tracking
 cy.userZoomingEnabled(true); //disable zoom
-// cy.viewport({
-//   zoom: 1,
-//   pan: { x: 100, y: -400 }
-// });
+cy.reset(); //set position fixed
+cy.viewport({
+  zoom: 1,
+  pan: { x: 20, y: 130 }
+});
 cy.nodes().ungrabify();
     cy.on('tap', 'node', function(){
         try { 
-//
             var node =   this.data('id');
             var n = node.includes("group");
         
@@ -207,8 +213,10 @@ cy.nodes().ungrabify();
 
     function resetLayout(){
         cy.reset();
-        cy.layout();
-        cy.fit();
+        cy.viewport({
+            zoom: 1,
+            pan: { x: 40, y: 130 }
+        });
     }
 </script>
 
